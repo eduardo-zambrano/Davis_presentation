@@ -1,0 +1,826 @@
+---
+title: "Inequality Sensitive Optimal Treatment Assignment"
+author: "Eduardo Zambrano, Cal Poly"
+format:
+  revealjs:
+    theme: default
+    html-math-method: mathjax    
+    transition: fade
+    <!-- slideNumber: true -->
+---
+#### This material is based upon work supported by the NSF under Grant # 2313969
+
+## Outline of a research program
+
+::: {.incremental}
+- Project 1: Protected Income and Inequality Aversion
+- Project 2: Social Preferences Under Uncertainty and Ambiguity
+- Project 3: `Inequality Sensitive Optimal Treatment Assignment` (This paper)
+- Egalitarian Equivalent Treatment Effect Estimation
+- Inequality Aversion Elicitation in Theory and in Practice
+:::
+
+## Please visit `https://equistatlab.org/`
+
+<iframe src="https://equistatlab.org/" width="100%" height="600px" style="border:none;"></iframe>
+
+
+## The main preliminary issues
+
+- How to summarize heterogeneous treatment effects
+- How to account for magnitude of losses when errors occur
+- How to properly embed the answers to the questions above in an econoemtric framework
+
+## Two treatments and their outcome distributions 
+
+:::: {.columns}
+::: {.column}
+
+![](Income/Page1.jpg)
+:::
+
+::: {.column}
+<br>
+$\textcolor{red}{y(a)}$
+
+<br><br>
+
+$\textcolor{blue}{y(b)}$
+:::
+
+::::
+
+## An inequality neutral evaluator
+
+![](Income/Page1b.jpg)
+
+## Incorporating inequality aversion
+
+![](Income/Page1.jpg)
+
+
+## Social preferences
+
+- $W\left(y_{1},...,y_{n}\right)=\sum_{i=1}^{n}f\left(y_{i}\right)$
+
+## Investigate acceptable tradeoffs
+
+<div style="display: flex; justify-content: flex-end;">
+<iframe src="https://www.desmos.com/calculator/04f991c025?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+</div>
+
+## Investigate acceptable tradeoffs
+
+<div style="display: flex; justify-content: flex-end;">
+<iframe src="https://www.desmos.com/calculator/alkwbiy983?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+</div>
+
+## Investigate acceptable tradeoffs
+
+<div style="display: flex; justify-content: flex-end;">
+<iframe src="https://www.desmos.com/calculator/ow3ytj1mob?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+</div>
+
+## Investigate acceptable tradeoffs
+
+<div style="display: flex; justify-content: flex-end;">
+<iframe src="https://www.desmos.com/calculator/hb5f5bi7c3?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+</div>
+
+## Notice the asymptotes
+
+<div style="display: flex; justify-content: flex-end;">
+<iframe src="https://www.desmos.com/calculator/kwwwax4bou?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0 title="Figure 3: The *CRPI* evaluator"></iframe>
+</div>
+
+
+## From Project 1
+
+::: {#thm-marc1}
+(With Marc Fleurbaey) If you know where the asymptotes lie, then you know $f$.
+:::
+
+## Example
+
+- Say an evaluator always protects a constant fraction, $\kappa \in (0,1)$, of individual 1's income, regardless of the size of the gain for individual 2. Then
+
+$$f(y)=\log_2 \kappa \cdot y^{\frac{1}{\log_2 \kappa}}  $$
+
+
+
+##
+<iframe src="https://equistatlab.shinyapps.io/social-preferences/" width="100%" height="100%" style="border:none;"></iframe>
+
+## When the outcome distribution is known
+
+:::: {.columns}
+
+::: {.column width="50%"}
+::: {.incremental}
+- Apply $f$ to $\textcolor{red}{y(a)}$ and $\textcolor{blue}{y(b)}$
+- Compare treatments in terms of 
+    - $E[f(\textcolor{red}{y(a)})]$
+    - $E[f(\textcolor{blue}{y(b)})]$
+:::
+:::
+
+::: {.column width="50%"}
+
+![](Income/Page1.jpg)
+
+:::
+
+::::
+
+## Example
+
+- Three individuals
+- One state of the world
+
+::: {#tbl-panel layout-ncol=2}
+|$\textcolor{red}{a}$|$s_1$|
+|:-:|------:|
+|$y_{1}$|  $4$    |
+|$y_{2}$|  $5$    |
+|$y_{3}$|  $6$    |
+
+|$\textcolor{blue}{b}$|$s_1$|
+|:-:|------:|
+|$y_{1}$|  $1$    |
+|$y_{2}$|  $8$    |
+|$y_{3}$|  $12$    |
+:::
+
+## Example
+
+- Three individuals
+- One state of the world
+
+::: {#tbl-panel layout-ncol=2}
+|$\textcolor{red}{a}$|$s_1$|
+|:-:|------:|
+|$y_{1}$|  $4$    |
+|$y_{2}$|  $5$    |
+|$y_{3}$|  $6$    |
+| $E[y_i]$  |$\textcolor{red}{5}$|
+
+|$\textcolor{blue}{b}$|$s_1$|
+|:-:|------:|
+|$y_{1}$|  $1$    |
+|$y_{2}$|  $8$    |
+|$y_{3}$|  $12$    |
+| $E[y_i]$  |$\boxed{\textcolor{blue}{7}}$|
+:::
+
+## $f = \ln$
+
+::: {#tbl-panel layout-ncol=2}
+|$\textcolor{red}{a}$|$s_1$|
+|:-:|------:|
+|$\ln(y_{1})$|  $1.39$    |
+|$\ln(y_{2})$|  $1.61$    |
+|$\ln(y_{3})$|  $1.79$    |
+| $E[\ln(y_i)]$  |$\boxed{\textcolor{red}{1.60}}$|
+
+|$\textcolor{blue}{b}$|$s_1$|
+|:-:|------:|
+|$\ln(y_{1})$|  $0$    |
+|$\ln(y_{2})$|  $2.08$    |
+|$\ln(y_{3})$|  $2.48$    |
+| $E[\ln(y_i)]$  |$\textcolor{blue}{1.52}$|
+:::
+
+
+## When the outcome distribution is not known
+
+![](Income/Page3.jpg)
+
+## When the outcome distribution is not known
+
+![](Income/Page3a.jpg)
+
+
+## From Project 2
+
+When the outcome distribution for each treatment is not known, avoid comparing treatments in terms of
+$E[f(\textcolor{red}{y(a)})]$ and $E[f(\textcolor{blue}{y(b)})]$
+
+::: {.incremental}
+- Doing so will make you conflate inequality aversion with risk aversion.
+:::
+
+## Example
+
+- Three individuals
+- Two states of the world
+
+::: {#tbl-panel layout-ncol=2}
+|$\textcolor{red}{a}$|$s_1$||$s_2$| 
+|-:|------:|-|:------|
+|$y_{1}$|  $6$    | | $2$    |
+|$y_{2}$|  $6$    | | $2$    |
+|$y_{3}$|  $6$    | | $2$    |
+
+
+|$\textcolor{blue}{b}$|$s_1$||$s_2$| 
+|-:|------:|-|:------|
+|$y_{1}$|   $8$   ||  $1$    |
+|$y_{2}$|   $8$   || $1$    |
+|$y_{3}$|  $8$   | | $1$    |
+
+:::
+
+Prior on $\{s_1,s_2\}$
+
+$\pi = (2/3,1/3)$
+
+## Example
+
+
+
+::: {#tbl-panel layout-ncol=2}
+|$\textcolor{red}{a}$|$s_1$||$s_2$| 
+|-:|------:|------|:------|
+|$y_{1}$|  $6$    | | $2$    |
+|$y_{2}$|  $6$    | | $2$    |
+|$y_{3}$|  $6$    | | $2$    |
+| $E[y_i]$  |$6$||$2$|
+| $E[E[y_i]]$ ||$\textcolor{red}{4.67}$||
+
+|$\textcolor{blue}{b}$|$s_1$||$s_2$| 
+|-:|------:|-|:------|
+|$y_{1}$|   $8$   ||  $1$    |
+|$y_{2}$|   $8$   || $1$    |
+|$y_{3}$|  $8$   | | $1$    |
+| $E[y_i]$  |$8$||$1$|
+| $E[E[y_i]]$ ||$\boxed{\textcolor{blue}{5.67}}$||
+
+:::
+
+$\pi = (2/3,1/3)$
+
+## Example ($f = \ln$)
+
+::: {layout-ncol=2}
+
+|$\textcolor{red}{a}$|$s_1$||$s_2$|
+|:-:|------:|-|:------|
+|$\ln(y_{1})$|  $1.79$    ||  $0.69$    ||
+|$\ln(y_{2})$|  $1.79$    ||  $0.69$    ||
+|$\ln(y_{3})$|  $1.79$    ||  $0.69$    ||
+| $E[\ln(y_i)]$  |$1.79$||$0.69$|
+| $E[E[\ln(y_i)]]$ ||$\boxed{\textcolor{red}{1.43}}$||
+
+
+
+$\textcolor{blue}{b}$|$s_1$||$s_2$|
+|:-:|------:|-|:------|
+| |  $2.08$    ||  $0$    ||
+| |  $2.08$    ||  $0$    ||
+| |  $2.08$    ||  $0$    ||
+|  |$2.08$||$0$|
+|  ||$\textcolor{blue}{1.39}$||
+
+:::
+
+# *We need to undo the effect of $f$ when it isn't needed*
+
+
+## Egalitarian equivalent ($\mathcal{EE}$)
+
+:::: {.columns}
+::: {.column width="50%"}
+![](Income/Page2.jpg)
+:::
+
+::: {.column width=50%}
+\vspace{2em}
+<br>
+$\textcolor{red}{\mathcal{EE_0}} = f^{-1}(E[f(\textcolor{red}{y(a)})])$
+
+<br><br>
+
+$\textcolor{blue}{\mathcal{EE_1}}= f^{-1}(E[f(\textcolor{blue}{y(b)})])$
+:::
+
+::::
+
+
+## Inequality aversion
+
+![](Income/Page1c.jpg)
+
+## From Project 2
+
+To avoid conflating risk aversion and inequality aversion, use $\mathcal{EE}$.
+
+## From Project 2
+- $N = \{1,...,n\}$
+
+::: {.incremental}
+- $S = \{s_{1},...,s_{m}\}$
+- $y = (y_{i}^{s})_{i \in N, s \in S }$
+- $\Upsilon = \mathbb{R}^{nm}$
+- $\Upsilon^{1}= \mathbb{R}^{m}$
+- $P, R, I$: the evaluator's preferences over $\Upsilon$
+- $\succ, \succeq, \sim$: the evaluator's preferences over $\Upsilon^{1}$
+:::
+
+## From Project 2
+
+::: {#thm-extension}
+Let $R$ satisfy Continuity, Weak Dominance, Weak Pareto for No Risk, and Statistical Extension. For all $y,y^{'} \in \Upsilon$, one has 
+
+$$yPy^{'}$$
+ $$\Leftrightarrow$$ 
+$$(\mathcal{EE}(y^{1}),...,\mathcal{EE}(y^{m})) \succ (\mathcal{EE}(y^{'1}),...,\mathcal{EE}(y^{'m}))$$
+:::
+
+::: aside
+[Details](#appendix) 
+:::
+
+## Bottom line
+
+Identify each treatment with the profile $(\mathcal{EE}^1,...,\mathcal{EE}^m)$ 
+
+![](Income/Page3b.jpg)
+
+## Example 
+
+::: {#tbl-panel layout-ncol=2}
+|$\textcolor{red}{a}$|$s_1$||$s_2$| 
+|-:|------:|-|:------|
+|$y_{1}$|  $4$    | | $2$    |
+|$y_{2}$|  $5$    | | $2$    |
+|$y_{3}$|  $6$    | | $2$    |
+
+
+|$\textcolor{blue}{b}$|$s_1$||$s_2$| 
+|-:|------:|-|:------|
+|$y_{1}$|   $3$   ||  $1$    |
+|$y_{2}$|   $8$   || $1$    |
+|$y_{3}$|  $10$   | | $1$    |
+
+:::
+
+Prior on $\{s_1,s_2\}$
+
+$\pi = (2/3,1/3)$
+
+## $f = \ln$
+
+
+
+::: {#tbl-panel layout-ncol=2}
+|$\textcolor{red}{a}$|$s_1$||$s_2$| 
+|-:|------:|------|:------|
+|$y_{1}$|  $4$    | | $2$    |
+|$y_{2}$|  $5$    | | $2$    |
+|$y_{3}$|  $6$    | | $2$    |
+| $\mathcal{EE}[y_i]$  |$4.93$||$2$|
+| $E[\mathcal{EE}[y_i]]$ ||$\textcolor{red}{3.95}$||
+
+|$\textcolor{blue}{b}$|$s_1$||$s_2$| 
+|-:|------:|-|:------|
+|$y_{1}$|   $3$   ||  $1$    |
+|$y_{2}$|   $8$   || $1$    |
+|$y_{3}$|  $10$   | | $1$    |
+| $\mathcal{EE}[y_i]$  |$6.21$||$1$|
+| $E[\mathcal{EE}[y_i]]$ ||$\boxed{\textcolor{blue}{4.48}}$||
+
+:::
+
+$\pi = (2/3,1/3)$
+
+## $f = \ln$
+
+::: {layout-ncol=2}
+
+|$\textcolor{red}{a}$|$s_1$||$s_2$|
+|:-:|------:|-|:------|
+|$\ln(y_{1})$|  $1.39$    ||  $0.69$    ||
+|$\ln(y_{2})$|  $1.61$    ||  $0.69$    ||
+|$\ln(y_{3})$|  $1.79$    ||  $0.69$    ||
+| $E[\ln(y_i)]$  |$1.60$||$0.69$|
+| $E[E[\ln(y_i)]]$ ||$\boxed{\textcolor{red}{1.29}}$||
+
+
+
+$\textcolor{blue}{b}$|$s_1$||$s_2$|
+|:-:|------:|-|:------|
+| |  $1.1$    ||  $0$    ||
+| |  $2.08$    ||  $0$    ||
+| |  $2.30$    ||  $0$    ||
+|  |$1.82$||$0$|
+|  ||$\textcolor{blue}{1.22}$||
+
+:::
+
+
+
+
+## This paper (Project 3) {#origin}
+
+- $\textcolor{green}{\text{Egalitarian Equivalent Optimal Statistical Decisions}}$
+  - $\textcolor{green}{\text{Under point and partial identification}}$
+  - Finite sample analysis
+  - Large sample analysis in the limit of experiments framework
+  - Applications: Microcredit, JobCorps
+
+## Statistical decision theory
+::: {.incremental}
+- $d \in \{a,b\}$
+- $y^{s}(d)) = \begin{bmatrix}
+    y_{1}^{s}(d) \\
+    \vdots \\
+    y_{i}^{s}(d)
+\end{bmatrix}$
+- $ee^{s}(d):= ee(y^{s}(d)) = f^{-1}\left(\frac{1}{n} \sum_{i=1}^{n} f(y^{s}_{i}(d))\right)$
+- $f$ is determined using @thm-marc1
+:::
+
+## Egalitarian equivalent treatment effect (`EETE`)
+$$\tau(s):=\textcolor{blue}{ee^{s}(b)} - 
+\textcolor{red}{ee^{s}(a)}$$
+
+
+## Statistical treatment rules
+- $\delta: \mathcal{P} \rightarrow [0,1]$
+
+##
+- $\delta: \mathcal{P} \rightarrow [0,1]$
+$$ ee^{s}(\delta(P_s)) = $$
+$$f^{-1}\left[\delta(P_s)f(\textcolor{blue}{ee^{s}(b)})+(1-\delta(P_s))f(\textcolor{red}{ee^{s}(a)})\right]$$
+
+::: aside
+$ee^{s}(\delta(P_s)) = f^{-1}\left[\delta(P_s)\left(\frac{1}{n}\sum_{i=1}^{n} f\left(\textcolor{blue}{y_{is}(b)}\right)\right)+(1-\delta(P_s))\left(\frac{1}{n}\sum_{i=1}^{n} f\left(\textcolor{red}{y_{is}(a)}\right)\right)\right]$
+:::
+
+##
+Thanks to @thm-extension, the decision problem boils down to selecting $\delta$ in order to obtain the most favorable profile
+
+$$(ee^{1}(\delta(P_s),...,ee^{m}(\delta(P_s))$$ 
+
+according to the preferences $\succeq$ over the restricted set  $\Upsilon_{1}$, and given knowledge of the sampling distribution $P_s$.
+
+## Details
+
+::: {.incremental}
+- Let $\pi$ be a prior on $S$ 
+- for each $P_s$, let $S(P_s) \subseteq S$ denotes the state space obtained with knowledge of $P_s$.
+<!-- - An ordering $\succeq$ over $\Upsilon_{1}$ -->
+
+:::
+
+## The Bayes decision problem 
+$$\max_{\delta(P_s) \in [0,1]} E_{\pi}\left[ee^{s}(\delta(P_s)) |S(P_s)\right] $$
+
+::: aside
+$$(ee^{1}(\delta(P_s)),...,ee^{m}(\delta(P_s)))$$ 
+:::
+
+## The maximin decision problem
+$$\max_{\delta(P_s) \in [0,1]} \min_{s \in S(P_s)} ee^{s}(\delta(P_s))$$
+
+::: aside
+$$(ee^{1}(\delta(P_s)),...,ee^{m}(\delta(P_s)))$$ 
+:::
+
+## The minimax regret decision problem
+$$\min_{\delta(P_s) \in [0,1]} \max_{s \in S(P_s)} \left[ \max \{\textcolor{red}{ee^{s}(a)}, \textcolor{blue}{ee^{s}(b)}\} - ee^{s}(\delta(P_s))\right]$$
+
+::: aside
+$$(ee^{1}(\delta(P_s)),...,ee^{m}(\delta(P_s)))$$ 
+:::
+
+---
+### `Bayesian`
+$$\max_{\delta(P_s) \in [0,1]} E_{\pi}\left[\boxed{ee^{s}(\delta(P_s))} |S(P_s)\right] $$
+
+### `Maximin`
+$$\max_{\delta(P_s) \in [0,1]} \min_{s \in S(P_s)} \boxed{ee^{s}(\delta(P_s))}$$
+
+### `Minimax regret`
+$$\min_{\delta(P_s) \in [0,1]} \max_{s \in S(P_s)} \left[ \max \{\textcolor{red}{ee^{s}(a)}, \textcolor{blue}{ee^{s}(b)}\} - \boxed{ee^{s}(\delta(P_s))}\right]$$
+
+## *Technical conditions*
+
+::: aside
+$\{(ee^{s}(a),ee^{s}(b))\}_{s \in S(P_s)}$ is bounded, and $s_{w},s_{a},s_{b} \in S(P_s)$, where $s_{w}, s_{a}$ and $s_{b}$ are such that
+
+* $ee^{s_{w}}(a) = ee^{s_{b}}(a) = \min_{s \in S(P_s)}ee^{s}(a)$ 
+ 
+* $ee^{s_{w}}(b) = ee^{s_{a}}(b) = \min_{s \in S(P_s)}ee^{s}(b)$ 
+ 
+* $ee^{s_{d}}(d) = \max_{s \in S(P_s)}ee^{s}(d)$ for $d \in \{a, b\}$
+:::
+
+##
+::: {#thm-AB}
+Assume the *technical conditions* hold and that the true state $s$ is partially identified. Then
+
+* The solution to the Bayesian decision problem is 
+$$\delta^{B}(P_s) = 1 \left(E_{\pi}\left[\tau_{ee}(s)|S(P_s)\right] > 0\right)$$
+:::
+
+##
+#### @thm-AB (cont.) 
+* The solution to the maximin decision problem is 
+$$\delta^{M}(P_s) = 1 \left(\tau_{ee}(s_w) > 0 \right)$$
+
+##
+#### @thm-AB (cont.)
+* The solution to the minimax regret decision problem is $\delta^{R}(P_s) \in (0,1)$ such that 
+$$\textcolor{red}{ee^{s_{a}}(a)} - ee^{s_{a}}(\delta^{R}(P_s)) = \textcolor{blue}{ee^{s_{b}}(b)} - ee^{s_{b}}(\delta^{R}(P_s))$$
+
+
+## Side by side
+
+$$\delta^{B}(P_s) = 1 \left(E_{\pi}\left[\textcolor{blue}{ee(b)}|S(P_s)\right] - E_{\pi}\left[\textcolor{red}{ee(a)}|S(P_s)\right] > 0 \right)$$
+
+$$\delta^{M}(P_s) = 1 \left(\textcolor{blue}{ee^{s_{w}}(b)} - \textcolor{red}{ee^{s_{w}}(a)} > 0 \right)$$
+
+$$\textcolor{red}{ee^{s_{a}}(a)} - ee^{s_{a}}(\delta^{R}(P_s)) = \textcolor{blue}{ee^{s_{b}}(b)} - ee^{s_{b}}(\delta^{R}(P_s))$$
+
+
+
+## Side by side
+
+$$\delta^{B}(P_s) = 1 \left(E_{\pi}\left[\textcolor{blue}{ee(b)}|S(P_s)\right] - E_{\pi}\left[\textcolor{red}{ee(a)}|S(P_s)\right] > 0 \right)$$
+
+$$\delta^{M}(P_s) = 1 \left(\textcolor{blue}{ee^{s_{w}}(b)} - \textcolor{red}{ee^{s_{w}}(a)} > 0 \right)$$
+
+$$\textcolor{red}{ee^{s_{a}}(a)} - ee^{s_{a}}(\delta^{R}(P_s)) = \textcolor{blue}{ee^{s_{b}}(b)} - ee^{s_{b}}(\delta^{R}(P_s))$$
+
+<br>
+<br>
+<br>
+
+
+
+:::{.callout-note}
+## Remark
+The role of identification
+:::
+
+
+
+## Fork on the Road {#menu}
+
+- [Illustration: A known treatment vs. an innovation](#known-treatment)
+- [Application: Microcredit interventions in developing countries](#meager)
+- [Application: JobCorps education and training program](#sec-jobcorps)
+<!-- - [Large-Sample Econometrics](#econometrics) -->
+- [Conclusions](#conclusions)
+
+## Application: A known treatment vs. an innovation {#known-treatment}
+
+(Manski 2004, 2019; Stoye 2009)
+
+* $y_{i}^{s}(d) \in \{\underline{p},\bar{p}\}$ for $d = a, b$ 
+
+* $\underline{p},\bar{p} \in (0,1]$
+
+* $y(a)$ is known
+
+* $p(a)$  = fraction of individuals that obtain outcome $\bar{p}$ in $y(a)$
+
+## Minimax regret analysis
+
+![](Figure_2a.png)
+
+$$\delta^*_N = 1 - p(a)$$
+
+## Minimax regret analysis
+
+![](Figure_2b_copy.png)
+
+$$\delta^*_A > \delta^*_N$$
+
+## Bayesian analysis
+
+![](Figure_1a.png)
+
+## Bayesian analysis
+
+![](Figure_1b.png)
+
+## Bayesian analysis
+
+![](Figure_1c.png)
+
+## Bayesian analysis
+
+![](Figure_1a.png){width=30%}
+![](Figure_1b.png){width=30%}
+![](Figure_1c.png){width=30%}
+
+- If the $IN$ evaluator accepts the innovation, so will the $IA$ evaluator but not the other way around.
+
+- If either evaluator accepts the innovation, they set $\delta = 1$, and if they don't accept it, they set $\delta = 0$.
+
+## Maximin analysis
+
+- The $IN$ maximin evaluator maximizes
+$$min_{s \in S} \{(p(a) + (p^{s}(b) - p(a))\delta)\}$$
+
+with solution $\delta^{*}_{IN} = 0$ (Manski 2004). 
+
+- An $IA$ maximin evaluator maximizes 
+
+$$min_{s \in S} \{ee^{s}(\delta)\}$$ 
+
+- Since $ee^{s}(\delta) = f^{-1}(p(a) + (p^{s}(b) - p(a))\delta)$ and $f^{-1}$ is monotone, both problems share the same solution. 
+
+
+[Go Back](#menu)
+
+
+
+## `EETE` estimation workflow {#conclusions}
+
+1. Use @thm-marc1 to help determine which social preference under certainty to bring into the analysis. 
+
+2. Use @thm-extension to decide how to incorporate that social preferences into a world where risk, uncertainty or ambiguity play a prominent role.  
+
+3. Use @thm-AB to identify the correct optimal statistical treatment rule needed for the problem at hand.
+
+## Please visit `https://equistatlab.org/`
+
+<iframe src="https://equistatlab.org/" width="100%" height="600px" style="border:none;"></iframe>
+
+# `Thank You!`
+
+
+
+## @thm-extension details {#appendix}
+
+
+An extension of Theorem 1 in Fleurbaey (2010).
+
+::: {.incremental}
+- $N = \{1,...,n\}$
+- $S = \{s_{1},...,s_{m}\}$
+- $y = (y_{i}^{s})_{i \in N, s \in S }$
+- $\Upsilon \subseteq \mathbb{R}^{nm}$
+- $P, R, I$: the evaluator's preferences over $\Upsilon$
+:::
+
+## 
+::: {.incremental}
+- $[y^{s}] \in \Upsilon^{c}$
+- $(y_{i}) \in \Upsilon^{e}$
+- $\succ, \succeq, \sim$: the evaluator's preferences over $\Upsilon^{1}\subseteq \mathbb{R}^{m}$
+:::
+
+## Continuity 
+Let $y,y^{'} \in \Upsilon$ and $(y(t))_{t \in \mathbb{N}} \in \Upsilon^{\mathbb{N}}$ be such that $y(t) \to y$. If $y(t)Ry^{'}$ for all $t\in \mathbb{N}$, then $yRy^{'}$. If $y^{'}Ry(t)$ for all $t\in \mathbb{N}$, then $y^{'}Ry$. 
+
+## Weak Dominance
+For all $y, y^{'} \in \Upsilon$, one has $y R y^{'}$ if for all $s \in S, [y^{s}] R [y^{s'}]$.
+
+## Weak Pareto for No Risk
+For all $[y^{s}], [y^{'s}] \in \Upsilon^{c}$, one has $[y^{s}]P[y^{'s}]$ if, for all $i \in N, y_{i}^{s}>y_{i}^{'s}$.
+
+## Statistical Extension
+For all $(y_{i}),(y_{i}^{'}) \in \Upsilon^{e}$, one has $(y_{i})P(y_{i}^{'})$ if $y_{i} \succ y_{i}^{'}$.
+
+##
+Let $\mathcal{EE}(y^{s})$ be the continuous function such that, for each $y^{s} \in \mathbb{R}^{n}$, 
+
+
+$$[y^{s}]\space I\space [(\mathcal{EE}(y^{s}),...,\mathcal{EE}(y^{s}))].$$
+
+
+##
+**@thm-extension**
+Let $\Upsilon = {\mathbb{R}}^{nm}$ and $R$ satisfy Continuity, Weak Dominance, Weak Pareto for No Risk, and Statistical Extension. For all $y,y^{'} \in \Upsilon$, one has 
+
+$$yPy^{'}$$
+ $$iff$$ 
+$$(\mathcal{EE}(y^{1}),...,\mathcal{EE}(y^{m})) \succ (\mathcal{EE}(y^{'1}),...,\mathcal{EE}(y^{'m}))$$
+
+[Go Back](#thm-extension)
+
+## Application: A Bayesian meta analysis of the microcredit literature {#meager}
+- Meager 2022 estimates posterior distributions of the effect of microcredit interventions on consumption using data from randomized trials that expand access to microcredit in five countries:
+
+        - Bosnia
+        - India
+        - Mexico
+        - Mongolia
+        - Morocco
+
+
+
+## Meager's results
+::: {.incremental}
+- Meager reports considerable treatment effect heterogeneity.
+- Large segments of the distribution of consumption are nearly unaffected by the policy (from the 5-th to the 75-th percentiles)
+- This is coupled with with large yet uncertain differences on the upper tails of the distribution of consumption of the treatment and control groups, especially within the group of households with previous business experience.
+- Given that the treatment will probably increase inequality, "the social welfare effects of microcredit are likely to be complex." (Meager 2022, p. 1821).
+:::
+
+##
+:::{.callout-note icon=false}
+## Meager's Bayesian hierarchical model
+$$
+y_{ik}(T_{ik}) \sim \texttt{LogNormal}(\mu_k + \zeta_k T_{ik},\sigma_k \lambda_k^{T_{ik}}) \text{ for } k = 1,...,5; 
+$$
+$$
+0.1\mu_k, 0.1\zeta_k, \log(\sigma_k), \log(\lambda_k) \sim \texttt{MvN}(0, 10I) \text{ for } k = 1,...,5.
+$$
+:::
+
+##
+- I compute mean treatment effects and egalitarian equivalent treatment effects using Meager's Markov Chain Monte Carlo (MCMC) output, denoted $\hat{\pi}$,  which contains three chains with four thousand draws per chain.
+
+- The egalitarian equivalent at every draw can be computed using the expression
+
+$$
+\mathcal{EE}(y_k(d)) = e^{\mu_k + \zeta_k d + \frac{1}{2}\frac{1}{\log_2 \kappa} \left(\sigma_k \lambda_k^d\right)^{2}}.
+$$ 
+
+##
+![Posterior distributions of the mean (inequality neutral) treatment effects ($\tau$) and the egalitarian equivalent treatment effects ($\tau_{ee}$) for $\kappa = 0.5$. All units are 2009 USD PPP per two weeks.](imported_multiple_sites.png)
+
+##
+
+|          | $E_{\hat{\pi}}[\tau]$ |$P_{\hat{\pi}}[\tau>0]$| $E_{\hat{\pi}}[\tau_{ee}]$ | $P_{\hat{\pi}}[\tau_{ee}>0]$ |
+|:-:|:-:|:-:|:-:|:-:|
+| Bosnia   | 13.82 | 82.5% | -3.11 | 14.3% |
+| India    | 3.00  | 83.1% | -1.20 | 29.1% |
+| Mexico   | 5.65  | 97.5% | -3.76 | 2.7% |
+| Mongolia | 8.58 | 88.1% | -1.35 | 35.0% |
+| Morocco  | -2.57 | 22.7% | 2.55  | 82.4% |
+
+: Microcredit treatment effect Bayesian estimates (Inequality neutral and $\kappa = 0.5$)
+
+##
+::: {#tbl-elephant}
+![](Meager_table_1.jpg)
+
+Bayesian quantile treatment effects on consumption (from Table 1 in Meager 2022)
+:::
+
+[Go Back](#menu)
+
+<!-- ## *Differences in means* analysis in the microcredit application
+
+- The point estimates (with standard errors in parentheses) of the differences in means $E[y(1)] - E[y(0)]$ for the five sites are: Bosnia -1.59 (14.14), India 4.55 (3.85) (India), Mexico 5.51 (2.90), Mongolia 50.45 (15.67) and Morocco -2.93 (4.26). 
+
+- One would reject the hypothesis that the treatments have the same effect on average income at the 5% level in the case of Mongolia, and would not reject the hypothesis in the other four countries.
+
+[Go Back](#origin) -->
+
+## Minimizing egalitarian equivalent regret at JobCorps {#sec-jobcorps}
+
+::: {.incremental}
+- JobCorps is a widely studied RCT education and training program for disadvantaged youth.
+
+- The evaluator only observes wages for those individuals who are employed. 
+
+- $ee^{s}(a)$ and $ee^{s}(b)$ are not point identified and therefore $\tau_{ee}(s)$ is also not point identified at $s$. 
+
+- Partial identification is achievable under relatively mild assumptions.
+:::
+
+## Egalitarian equivalent bounds
+::: { layout-nrows=2}
+|          | $ee^L(a)$ |$ee^U(a)$| $ee^L(b)$ | $ee^U(b)$ |
+|:-:|:-:|:-:|:-:|:-:|
+| Horowitz and Manski    | 4.1 | 9 | 3.8 | 8.6 |
+| Lee    | 6.6  | 6.6 | 6.5 | 7.7 |
+| Chen and Flores   | 6.6  | 6.6 | 6.8 | 7.7 |
+
+: $\kappa = 0.5$
+:::
+
+## Minimizing egalitarian equivalent regret at JobCorps
+![](jobcorps_ota_2_and_1.png)
+
+## Optimal treatment assignment
+
+::: { layout-nrows=2}
+|          | Horowitz and Manski Bounds |Lee Bounds| Chen and Flores Bounds|
+|:-:|:-:|:-:|:-:|
+| $\kappa = 0.5$           | 0.42                | 0.95  | 1               |
+
+: $\delta^*$
+:::
+
+[Go Back](#menu)
+
+## Optimal treatment assignment
+
+::: { layout-nrows=2}
+|          | Horowitz and Manski Bounds |Lee Bounds| Chen and Flores Bounds|
+|:-:|:-:|:-:|:-:|
+| $\kappa = 0.5$           | 0.42                | 0.95  | 1               |
+| *Inequality Neutral*           | 0.59                | 0.66  | 1               |
+
+: $\delta^*$
+:::
+
+[Go Back](#menu)
